@@ -1,9 +1,8 @@
-import express from 'express';
-import { Blogcard } from '../models/cardModel'
-
+const express = require('express');
+const YourDataModel = require('../models/cardModel')
 const router = express.Router();
 
-app.post('/data', async (req, res) => {
+router.post('/data', async (req, res) => {
     const newData = new YourDataModel(req.body);
     try {
       await newData.save();
@@ -13,7 +12,7 @@ app.post('/data', async (req, res) => {
     }
   });
   
-  app.get('/', async (req, res) => {
+  router.get('/data', async (req, res) => {
     try {
       const data = await YourDataModel.find({});
       res.json(data);
@@ -22,7 +21,7 @@ app.post('/data', async (req, res) => {
     }
   });
 
-  app.put('/data/:id', async (req, res) => {
+  router.put('/data/:id', async (req, res) => {
     const { id } = req.params;
     const newData = req.body;
     try {
@@ -33,7 +32,7 @@ app.post('/data', async (req, res) => {
     }
   });
   
-  app.delete('/data/:id', async (req, res) => {
+  router.delete('/data/:id', async (req, res) => {
     const { id } = req.params;
     try {
       await YourDataModel.findByIdAndDelete(id);
@@ -43,4 +42,4 @@ app.post('/data', async (req, res) => {
     }
   });
   
-  
+  module.exports = router;
