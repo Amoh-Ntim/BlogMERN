@@ -1,15 +1,17 @@
-// import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import PostForm from './components/Postform'
+import PostCard from './components/PostCard';
 
 function App() {
 
   return (
-    <>
-    <div>
-    <PostForm/>
-    </div>
-    </>
+  <BrowserRouter>
+  <Routes>
+  <Route path="/" element={<PostForm/>} />
+  <Route path="/postcards" element={<PostCard />} />
+  </Routes>
+  </BrowserRouter>
   )
 }
 

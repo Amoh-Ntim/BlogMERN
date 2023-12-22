@@ -5,11 +5,8 @@ const app = express();
 const route = require('../server/Routes/blogRoutes') // Assuming the file is in the same directory as app.js
 
 
-app.use(cors({
-  origin: ['http://localhost:5000/data'], // Allow requests from this origin
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-}));
+app.use(cors());
+
 app.use(express.json()); // Parse incoming JSON data
 
 // Attach the router to the app
