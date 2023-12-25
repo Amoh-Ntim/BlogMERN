@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 // import Spinner from 'react-loading';
 
 const  PostCard = () => {
@@ -39,6 +40,13 @@ const [error, setError] = useState(null);
               <div className="p-4">
                   <h5 className="text-xl font-semibold">{post.title}</h5>
                   <p className="text-gray-700">{post.publishYear}</p> <a href={`/posts/${post._id}`} className="text-blue-500 hover:underline">Read More</a>
+              </div>
+              <div className='mb-8'>
+                  <Link to="/edit">
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Modify Post
+                  </button>
+                  </Link>
               </div>
               </div> 
             ))}

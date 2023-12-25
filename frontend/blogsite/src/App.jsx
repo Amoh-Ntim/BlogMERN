@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
 import PostForm from './components/Postform'
 import PostCard from './components/PostCard';
+import EditCard from './components/EditCard';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
   <Routes>
   <Route path="/" element={<PostForm/>} />
   <Route path="/postcards" element={<PostCard />} />
+  <Route path="/edit" element={<EditCard />} />
   </Routes>
   </BrowserRouter>
   )
