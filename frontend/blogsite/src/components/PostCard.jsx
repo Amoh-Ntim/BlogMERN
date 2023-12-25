@@ -15,7 +15,7 @@ const [error, setError] = useState(null);
     axios.get('http://localhost:5000/data') // Adjust the URL to your API endpoint
       .then(response => {
         setPosts(response.data);
-        setIsLoading()
+        setIsLoading(false);
       })
       .catch(error => {
         setError(error);
@@ -32,7 +32,7 @@ const [error, setError] = useState(null);
         {isLoading && <div className="animate-ping flex justify-center items-center w-16 h-16 m-8 rounded-full bg-sky-600"></div>}
         {error && <p>Error: {error.message}</p>}
         {posts.length > 0 && (
-          <ul>
+          <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {posts.map(post => (
               <div key={post._id} className="bg-white shadow-md rounded-lg overflow-hidden">
               <img className="w-full" src={post.url} alt={post.title} />
@@ -42,7 +42,7 @@ const [error, setError] = useState(null);
               </div>
               </div> 
             ))}
-          </ul>
+            </div>
         )}
       </div>
     );

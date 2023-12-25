@@ -1,11 +1,14 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
 const route = require('../server/Routes/blogRoutes') // Assuming the file is in the same directory as app.js
 
 
 app.use(cors());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.json()); // Parse incoming JSON data
 

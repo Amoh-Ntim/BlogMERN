@@ -1,70 +1,48 @@
-import { useState,useEffect } from 'react';
+import { useState} from 'react';
 import axios from 'axios'; // Import Axios
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const PostForm = () => {
+
+const PostForm = ({ updatePosts }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [url, setUrl] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(null)
 
+  // const navigate = useNavigate()
   // ... other imports
 
-  useEffect(() => {
-    if (isSubmitting) {
-      setError(null); // Clear any previous errors
   
-      const handleSubmit = async () => {
-        try {
-          const response = await axios.post('http://localhost:5000/data', {
-            title,
-            author,
-            publishYear,
-            url,
-            // ... other fields
-          });
-  
-          const data = response.data;
-  
-          if (data.message === 'Post created successfully!') {
-            // Clear form fields
-            setTitle('');
-            setAuthor('');
-            // ... clear other fields
-  
-            // Display a more informative success message
-            alert('Your post has been created successfully!');
-  
-            // Optionally redirect to a different page
-            // window.location.href = '/posts';
-          } else {
-            // Handle unexpected server response
-            console.error('Unexpected response from server:', data);
-            setError('An error occurred while creating the post. Please try again.');
-          }
-        } catch (error) {
-          // Handle network or other errors
-          console.error('Error during form submission:', error);
-          setError('An error occurred. Please check your network connection and try again.');
-        } finally {
-          setIsSubmitting(false); // Indicate submission completion
-        }
-      };
-  
-      handleSubmit();
-    }
-  }, [isSubmitting, title, author, publishYear, url]); // Add other fields as dependencies if needed
-  
-  // ... your form's submit handler
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true); // Trigger the API call in useEffect
-  };
+  const handleSubmit = async () => {
+    setError(null);
+    setLoading(true);
 
+    const data = {
+      title,
+      author,
+      publishYear,
+      url,
+      // ...other fields
+    };
+
+    try {
+      await axios.post('http://localhost:5000/data', data);
+      setLoading(false);
+      updatePosts(); // Update posts after successful form submission
+    } catch (error) {
+      setLoading(false);
+      alert('New Post added successfully');
+      console.error('Error during form submission:', error);
+      setError('An error occurred. Please check your network connection and try again.');
+    }
+  };
   return (
-    <form onSubmit={handleFormSubmit} className="w-full max-w-md mx-auto p-6">
+    <form className="w-full max-w-md mx-auto p-6">
+    {loading && <div className="animate-ping flex justify-center items-center w-16 h-16 m-8 rounded-full bg-sky-600"></div>}
     {error && <div className="error-message">{error}</div>}
       <div className="mb-4">
         <label htmlFor="url" className="block text-gray-700 font-bold mb-2">Url</label>
@@ -112,7 +90,7 @@ const PostForm = () => {
       </div>
       {/* ...similar fields for excerpt and content... */}
       <Link to="/postcards">
-      <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleSubmit}>
         Submit
       </button>
       </Link>
@@ -120,4 +98,7 @@ const PostForm = () => {
   );
 };
 
+PostForm.propTypes = {
+  updatePosts: PropTypes.func.isRequired,
+};
 export default PostForm;

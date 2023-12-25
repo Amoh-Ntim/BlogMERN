@@ -7,8 +7,8 @@ router.post('/data', async (req, res) => {
     const { title, author, publishYear, url } = req.body;
 
     // Create a new post using your model and database
-    const newPost = new YourDataModel({ title, author, publishYear, url }); // Use YourDataModel
-    await newPost.save();
+    const post = new YourDataModel({ title, author, publishYear, url }); // Use YourDataModel
+    await post.save();
     res.json({ message: 'Post created successfully!' }); // Use res.json directly
   } catch (error) {
     console.error(error);
@@ -16,11 +16,9 @@ router.post('/data', async (req, res) => {
   }
 });
 
-  router.get('/data:id', async (req, res) => {
+  router.get('/data', async (req, res) => {
     try {
-      const { id } = req.params;
-      const data = await YourDataModel.findById(id);
-      console.log(req.body)
+      const data = await YourDataModel.find();
       res.json(data);
     } catch (err) {
       res.status(500).json({ error: err.message });
