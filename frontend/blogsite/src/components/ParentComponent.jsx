@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import PostForm from "./Postform";
 import PostCard from "./PostCard";
+import EditCard from "./EditCard";
 
 const ParentComponent = () => {
     const [posts, setPosts] = useState([]);
@@ -18,6 +19,7 @@ const ParentComponent = () => {
     return (
       <div>
         <PostForm updatePosts={updatePosts} />
+        <EditCard updatePosts={updatePosts} />
         <PostCard posts={posts} />
       </div>
     );
