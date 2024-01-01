@@ -29,7 +29,7 @@ const EditCard = ({ updatePosts }) => {
           setLoading(false);
           setError(error.message);
         });
-    }, []);
+    }, [id]);
   
     const handleEdit = () => {
       setError(null);
@@ -46,15 +46,13 @@ const EditCard = ({ updatePosts }) => {
       axios.put(`http://localhost:5000/data/${id}`, data)
         .then(() => {
           setLoading(false);
-          updatePosts();
+          updatePosts(); // Re-fetch posts
           navigate('/postcards');
         })
         .catch((error) => {
           setLoading(false);
           setError(error.message);
           console.error('Error during form submission:', error);
-          // Uncomment the line below if you want to rethrow the error for further handling
-          // throw error;
         });
     };
   return (

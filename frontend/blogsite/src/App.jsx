@@ -11,7 +11,7 @@ function App() {
   <Routes>
   <Route path="/" element={<PostForm/>} />
   <Route path="/postcards" element={<PostCard />} />
-  <Route path="/edit" element={<EditCard />} />
+  <Route path="/edit/:id" element={<EditCard />} />
   </Routes>
   </BrowserRouter>
   )
