@@ -1,18 +1,17 @@
-import { useEffect, useState} from 'react';
+import { useState} from 'react';
 import axios from 'axios'; // Import Axios
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
 
 
-const EditCard = ({ updatePosts }) => {
+const EditCard = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [publishYear, setPublishYear] = useState('');
     const [url, setUrl] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { id } = useParams();
   
     const handleEdit = async () => {
