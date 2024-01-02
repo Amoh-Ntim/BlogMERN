@@ -15,23 +15,7 @@ const EditCard = ({ updatePosts }) => {
     const navigate = useNavigate();
     const { id } = useParams();
   
-    useEffect(() => {
-      setLoading(true);
-      axios.get(`http://localhost:5000/data/${id}`)
-        .then((response) => {
-          setUrl(response.data.url);
-          setTitle(response.data.title);
-          setAuthor(response.data.author);
-          setPublishYear(response.data.publishYear);
-          setLoading(false);
-        })
-        .catch((error) => {
-          setLoading(false);
-          setError(error.message);
-        });
-    }, [id]);
-  
-    const handleEdit = () => {
+    const handleEdit = async () => {
       setError(null);
   
       const data = {
@@ -43,14 +27,15 @@ const EditCard = ({ updatePosts }) => {
       };
   
       setLoading(true);
-      axios.put(`http://localhost:5000/data/${id}`, data)
+      const response = await axios.put(`http://localhost:5000/data/${id}`, data)
         .then(() => {
           setLoading(false);
-          updatePosts(); // Re-fetch posts
-          navigate('/postcards');
+          console.log(response.data);
+          // updatePosts();
+          // navigate('/postcards');
         })
         .catch((error) => {
-          setLoading(false);
+          // setLoading(false);
           setError(error.message);
           console.error('Error during form submission:', error);
         });
