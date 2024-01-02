@@ -48,6 +48,9 @@ const [error, setError] = useState(null);
                   </button>
                   </Link>
               </div>
+              <Link to={`/delete/${post._id}`}>
+              <button className='mb-8'>Delete</button>
+              </Link>
               </div> 
             ))}
             </div>
