@@ -40,9 +40,10 @@ router.post('/data', async (req, res) => {
     const { id } = req.params;
     try {
       await YourDataModel.findByIdAndDelete(id);
-      res.json({ message: 'Data deleted successfully!' });
+      res.status(200).json({ message: 'Data deleted successfully!' });
     } catch (err) {
       res.status(500).json({ error: err.message });
+      console.error(err.message);
     }
   });
   
