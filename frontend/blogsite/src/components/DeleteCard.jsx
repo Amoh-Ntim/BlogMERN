@@ -13,7 +13,7 @@ const DeleteCard = () => {
     try {
       await axios.delete(`http://localhost:5000/data/${id}`);
       setIsLoading(false);
-      navigate('/');
+      navigate('/postcards');
       // Handle post-deletion logic here (e.g., remove post from state)
     } catch (error) {
       setIsLoading(false);
