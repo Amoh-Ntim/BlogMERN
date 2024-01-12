@@ -24,7 +24,6 @@ const PostForm = ({ updatePosts }) => {
       author,
       publishYear,
       url,
-      // ...other fields
     };
 
     try {
