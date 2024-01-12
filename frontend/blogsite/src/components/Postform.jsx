@@ -7,12 +7,8 @@ const PostForm = ({ updatePosts }) => {
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [url, setUrl] = useState('');
-  // const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(null)
-
-  // const navigate = useNavigate()
-  // ... other imports
 
   
   const handleSubmit = async () => {
