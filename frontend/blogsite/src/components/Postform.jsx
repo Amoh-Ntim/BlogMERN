@@ -2,8 +2,6 @@ import { useState} from 'react';
 import axios from 'axios'; // Import Axios
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-
 const PostForm = ({ updatePosts }) => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
