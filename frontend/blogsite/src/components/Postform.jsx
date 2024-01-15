@@ -25,7 +25,7 @@ const PostForm = ({ updatePosts }) => {
     try {
       await axios.post('http://localhost:5000/data', data);
       setLoading(false);
-      updatePosts(); // Update posts after successful form submission
+      updatePosts();
     } catch (error) {
       setLoading(false);
       alert('New Post added successfully');
