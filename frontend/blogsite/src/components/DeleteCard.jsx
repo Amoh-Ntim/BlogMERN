@@ -21,8 +21,7 @@ const DeleteCard = () => {
       // Handle error here
     }
   };
-
-    
+ 
   return (
     <button onClick={handleDelete} disabled={isLoading}>
     {isLoading ? 'Deleting...' : 'Delete Post'}
