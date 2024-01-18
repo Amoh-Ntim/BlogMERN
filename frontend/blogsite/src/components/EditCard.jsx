@@ -34,7 +34,6 @@ const EditCard = () => {
           // navigate('/postcards');
         })
         .catch((error) => {
-          // setLoading(false);
           setError(error.message);
           console.error('Error during form submission:', error);
         });
