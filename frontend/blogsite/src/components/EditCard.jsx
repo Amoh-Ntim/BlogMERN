@@ -22,7 +22,6 @@ const EditCard = () => {
         author,
         publishYear,
         url,
-        // ...other fields
       };
   
       setLoading(true);
@@ -30,8 +29,6 @@ const EditCard = () => {
         .then(() => {
           setLoading(false);
           console.log(response.data);
-          // updatePosts();
-          // navigate('/postcards');
         })
         .catch((error) => {
           setError(error.message);
