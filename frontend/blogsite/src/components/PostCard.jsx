@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-// import Spinner from 'react-loading';
 
 const  PostCard = () => {
   const [posts, setPosts] = useState([]);
@@ -27,8 +26,6 @@ const [error, setError] = useState(null);
       });
   }, []); // Empty dependency array to fetch data only once
   
-
-  // ... render PostCards using the fetched posts data
   return (
       <div>
         {isLoading && <div className="animate-ping flex justify-center items-center w-16 h-16 m-8 rounded-full bg-sky-600"></div>}
