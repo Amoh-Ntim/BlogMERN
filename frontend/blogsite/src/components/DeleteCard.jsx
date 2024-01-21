@@ -18,7 +18,6 @@ const DeleteCard = () => {
     } catch (error) {
       setIsLoading(false);
       console.error('Error deleting post:', error);
-      // Handle error here
     }
   };
  
