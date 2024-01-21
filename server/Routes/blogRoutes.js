@@ -9,7 +9,7 @@ router.post('/data', async (req, res) => {
     // Create a new post using your model and database
     const post = new YourDataModel({ title, author, publishYear, url }); // Use YourDataModel
     await post.save();
-    res.json({ message: 'Post created successfully!' }); // Use res.json directly
+    res.json({ message: 'Post created successfully!' });
   } catch (error) {
     console.error(error);
     res.status(400).json({ error: error.message });
