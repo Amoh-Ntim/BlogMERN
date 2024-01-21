@@ -11,7 +11,6 @@ const EditCard = () => {
     const [url, setUrl] = useState('');
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
-    // const navigate = useNavigate();
     const { id } = useParams();
   
     const handleEdit = async () => {
