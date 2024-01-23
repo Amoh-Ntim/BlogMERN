@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const YourDataSchema = new Schema({
-  // Define your data fields with types (e.g., String, Number, Boolean)
     url: {
       type: String,
       required: true,
