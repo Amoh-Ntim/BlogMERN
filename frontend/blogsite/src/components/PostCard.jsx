@@ -11,7 +11,7 @@ const [error, setError] = useState(null);
     setIsLoading(true);
     setError(null);
   
-    axios.get('http://localhost:5000/data') // Adjust the URL to your API endpoint
+    axios.get('http://localhost:5000/data')
       .then(response => {
         setPosts(response.data);
         setIsLoading(false);
@@ -22,7 +22,7 @@ const [error, setError] = useState(null);
       .finally(() => {
         setIsLoading(false);
       });
-  }, []); // Empty dependency array to fetch data only once
+  }, []);
   
   return (
       <div>
