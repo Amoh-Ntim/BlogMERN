@@ -1,5 +1,5 @@
 import { useState} from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -60,7 +60,7 @@ const EditCard = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
-      
+
       <div className="mb-4">
         <label htmlFor="author" className="block text-gray-700 font-bold mb-2">Author</label>
         <input
