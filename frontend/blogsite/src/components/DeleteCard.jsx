@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useState } from 'react';
-// import Modal from 'react-modal';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const DeleteCard = () => {
