@@ -23,6 +23,5 @@ const YourDataSchema = new Schema({
   
   );
 const YourDataModel = mongoose.model('Blogcard', YourDataSchema);
-
 module.exports = YourDataModel;
 
