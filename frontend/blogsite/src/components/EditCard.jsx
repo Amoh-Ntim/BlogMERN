@@ -70,7 +70,7 @@ const EditCard = () => {
           onChange={(e) => setAuthor(e.target.value)}
         />
       </div>
-      {/*  */}
+  
       <div className="mb-4">
         <label htmlFor="publishYear" className="block text-gray-700 font-bold mb-2">PublishYear</label>
         <input
