@@ -5,8 +5,6 @@ const router = express.Router();
 router.post('/data', async (req, res) => {
   try {
     const { title, author, publishYear, url } = req.body;
-
-    // Create a new post using your model and database
     const post = new YourDataModel({ title, author, publishYear, url }); // Use YourDataModel
     await post.save();
     res.json({ message: 'Post created successfully!' });
