@@ -50,7 +50,7 @@ const EditCard = () => {
       </div>
 
       <div className="mb-4">
-        <label htmlFor="title" className="block text-gray-700 font-bold mb-2">Title</label>
+        <label htmlFor="title" className="block text-gray-700 font-bold mb-2"> Title </label>
         <input
           type="text"
           id="title"
