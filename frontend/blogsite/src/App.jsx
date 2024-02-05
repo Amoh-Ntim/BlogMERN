@@ -6,7 +6,6 @@ import EditCard from './components/EditCard';
 import DeleteCard from './components/DeleteCard';
 
 function App() {
-
   return (
   <BrowserRouter>
   <Routes>
