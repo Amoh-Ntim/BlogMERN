@@ -10,7 +10,6 @@ const [error, setError] = useState(null);
   useEffect(() => {
     setIsLoading(true);
     setError(null);
-  
     axios.get('http://localhost:5000/data')
       .then(response => {
         setPosts(response.data);
