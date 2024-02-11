@@ -15,7 +15,6 @@ const EditCard = () => {
   
     const handleEdit = async () => {
       setError(null);
-  
       const data = {
         title,
         author,
