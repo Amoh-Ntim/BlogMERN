@@ -7,6 +7,7 @@ import DeleteCard from "./DeleteCard";
 
 const ParentComponent = () => {
     const [posts, setPosts] = useState([]);
+    
     const updatePosts = async () => {
       try {
         const response = await axios.get('http://localhost:5000/data');
