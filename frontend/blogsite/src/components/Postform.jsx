@@ -34,6 +34,7 @@ const PostForm = ({ updatePosts }) => {
       setError('An error occurred. Please check your network connection and try again.');
     }
   };
+
   return (
     <form className="w-full max-w-md mx-auto p-6">
     {loading && <div className="animate-ping flex justify-center items-center w-16 h-16 m-8 rounded-full bg-sky-600"></div>}
@@ -48,7 +49,6 @@ const PostForm = ({ updatePosts }) => {
           onChange={(e) => setUrl(e.target.value)}
         />
       </div>
-
       {/*  */}
       <div className="mb-4">
         <label htmlFor="title" className="block text-gray-700 font-bold mb-2">Title</label>
