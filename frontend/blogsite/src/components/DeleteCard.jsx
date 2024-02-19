@@ -9,6 +9,7 @@ const DeleteCard = () => {
   
   const handleDelete = async () => {
     setIsLoading(true);
+    
     try {
       await axios.delete(`http://localhost:5000/data/${id}`);
       setIsLoading(false);
