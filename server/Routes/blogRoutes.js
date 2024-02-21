@@ -3,7 +3,9 @@ const YourDataModel = require('../models/cardModel')
 const router = express.Router();
 
 router.post('/data', async (req, res) => {
+
   try {
+    
     const { title, author, publishYear, url } = req.body;
     const post = new YourDataModel({ title, author, publishYear, url }); // Use YourDataModel
     await post.save();
