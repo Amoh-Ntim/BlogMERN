@@ -6,6 +6,7 @@ import EditCard from "./EditCard";
 import DeleteCard from "./DeleteCard";
 
 const ParentComponent = () => {
+  
     const [posts, setPosts] = useState([]);
     
     const updatePosts = async () => {
